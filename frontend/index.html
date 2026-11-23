@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <header class="site-header">
         <div class="header-content">
             <h1>Expense Tracker</h1>
@@ -15,14 +17,17 @@
     </header>
 
     <main class="container">
+
         <section class="form-card">
             <div class="section-heading">
-                <h2>Add New Expense</h2>
+                <h2 id="formHeading">Add New Expense</h2>
                 <p>Enter the details of your expense below.</p>
             </div>
 
             <form id="expenseForm">
+
                 <div class="form-grid">
+
                     <div class="form-group">
                         <label for="title">Expense Title</label>
                         <input type="text" id="title" name="title"
@@ -32,7 +37,8 @@
                     <div class="form-group">
                         <label for="amount">Amount (₹)</label>
                         <input type="number" id="amount" name="amount"
-                               min="0.01" step="0.01" placeholder="e.g. 250" required>
+                               min="0.01" step="0.01"
+                               placeholder="e.g. 250" required>
                     </div>
 
                     <div class="form-group">
@@ -52,22 +58,39 @@
 
                     <div class="form-group">
                         <label for="expense_date">Expense Date</label>
-                        <input type="date" id="expense_date" name="expense_date" required>
+                        <input type="date" id="expense_date"
+                               name="expense_date" required>
                     </div>
 
                     <div class="form-group full-width">
                         <label for="description">Description</label>
-                        <textarea id="description" name="description" rows="3"
+                        <textarea id="description" name="description"
+                                  rows="3"
                                   placeholder="Optional details about this expense"></textarea>
                     </div>
+
                 </div>
 
-                <button type="submit" class="btn-primary">Add Expense</button>
-                <p id="message" role="status" aria-live="polite"></p>
+                <div class="form-actions">
+                    <button type="submit" id="submitButton"
+                            class="btn-primary">
+                        Add Expense
+                    </button>
+
+                    <button type="button" id="cancelEditButton"
+                            class="btn-secondary" hidden>
+                        Cancel Edit
+                    </button>
+                </div>
+
+                <p id="message" role="status"
+                   aria-live="polite"></p>
+
             </form>
         </section>
 
         <section class="history-card">
+
             <div class="section-heading">
                 <h2>Expense History</h2>
                 <p>Your recorded expenses appear below.</p>
@@ -83,16 +106,22 @@
                             <th>Category</th>
                             <th>Date</th>
                             <th>Description</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
+
                     <tbody id="expenseTableBody">
                         <tr>
-                            <td colspan="6" class="empty-state">Loading expenses...</td>
+                            <td colspan="7" class="empty-state">
+                                Loading expenses...
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+
         </section>
+
     </main>
 
     <footer>
@@ -100,5 +129,6 @@
     </footer>
 
     <script src="script.js"></script>
+
 </body>
 </html>
