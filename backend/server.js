@@ -1,14 +1,15 @@
+
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 
 require('./config/db');
+
 const expenseRoutes = require('./routes/expenseRoutes');
 
 const app = express();
 
 // Log each completed HTTP request to stdout.
-// systemd redirects stdout to the application log file.
 app.use((req, res, next) => {
     const startTime = Date.now();
 
@@ -33,6 +34,7 @@ app.get('/', (req, res) => {
     res.send('Expense Tracker Backend is Running!');
 });
 
+// Server configuration
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, '0.0.0.0', () => {
